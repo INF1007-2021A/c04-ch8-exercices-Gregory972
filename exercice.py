@@ -92,7 +92,16 @@ def liste_croissante(fichier):
 
 #Exercice 6
 def recopie_une_ligne_sur_deux(fichier1, fichier2):
-    with
+    Compteur = 0
+    with open(fichier1, "r", encoding="utf-8") as f1, open(fichier2, "w", encoding="utf-8") as f2:
+        for ligne in f1:
+            if Compteur % 2 == 0:
+                f2.write(ligne)
+                f2.write("\n")
+            Compteur += 1
+    f1.close()
+    f2.close()
+
 
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
@@ -106,3 +115,5 @@ if __name__ == '__main__':
     #print(basededonnee('livre'))
 
     print(liste_croissante('exemple.txt'))
+
+    print(recopie_une_ligne_sur_deux('exemple.txt', 'fichier2'))
