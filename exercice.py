@@ -19,7 +19,7 @@ def compare(fichier1, fichier2):
 
                 return
 
-        print("Les fichiers",(fichier1, fichier2), "sont identiques")
+        print("Les fichiers", (fichier1, fichier2), "sont identiques")
 
 #Exercice 2
 def copie(fichier, fichier_vide):
@@ -30,8 +30,6 @@ def copie(fichier, fichier_vide):
                     f2.write('   ')
                 else:
                     f2.write(i)
-    f1.close()
-    f2.close()
 
 #Exercice 3
 def mentions(fichier, fichier_mentions):
@@ -44,8 +42,6 @@ def mentions(fichier, fichier_mentions):
                     verifier = True
                     f2.write(i)
                     f2.write("\n")
-    f1.close()
-    f2.close()
 
 #Exercice 4
 def supprimer_recette(dictionnaire):
@@ -58,7 +54,7 @@ def supprimer_recette(dictionnaire):
 def basededonnee(livre):
     livre_de_recette = {}
     while True:
-        choix = int(input("Veuillez choisir ==> 1 : ajouter une recette, 2 : supprimer une recette, 3 : modifier une recette, 4 : Vous avez terminé "))
+        choix = int(input("Veuillez choisir parmis les options suivantes \n 1 : ajouter une recette \n 2 : supprimer une recette \n 3 : modifier une recette \n 4 : Afficher une recette \n 5 : Vous avez terminé \n Votre choix : "))
         if choix == 1:
             recettes.add_recipes(livre_de_recette)
         elif choix == 2:
@@ -66,6 +62,8 @@ def basededonnee(livre):
         elif choix == 3:
             recettes.add_recipes(livre_de_recette)
         elif choix == 4:
+            recettes.print_recipe(livre_de_recette)
+        elif choix == 5:
             break
         else:
             print("Choix incorrect")
@@ -76,7 +74,6 @@ def basededonnee(livre):
             f.write(':')
             f.write(str(livre_de_recette.get(i)))
             f.write('\n')
-    f.close()
 
 #Exercice 5
 def liste_croissante(fichier):
@@ -99,21 +96,25 @@ def recopie_une_ligne_sur_deux(fichier1, fichier2):
                 f2.write(ligne)
                 f2.write("\n")
             Compteur += 1
-    f1.close()
-    f2.close()
 
 
 if __name__ == '__main__':
     # TODO: Appelez vos fonctions ici
-    print(compare('exemple.txt','notes.txt'))
+    # Exercice 1
+    print(compare('exemple.txt', 'notes.txt'))
     print(compare('exemple.txt', 'exemple.txt'))
 
+    # Exercice 2
     print(copie('exemple.txt', 'fichier_vide'))
 
+    # Exercice 3
     print(mentions('notes.txt', 'fichier_mentions'))
 
-    #print(basededonnee('livre'))
+    # Exercice 4
+    print(basededonnee('livre'))
 
+    # Exercice 5
     print(liste_croissante('exemple.txt'))
 
-    print(recopie_une_ligne_sur_deux('exemple.txt', 'fichier2'))
+    # Exercice 6
+    print(recopie_une_ligne_sur_deux('notes.txt', 'fichier2'))
