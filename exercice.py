@@ -7,6 +7,7 @@ PERCENTAGE_TO_LETTER = {"A*": [95, 101], "A": [90, 95], "B+": [85, 90], "B": [80
 import recettes
 
 # TODO: Définissez vos fonction ici
+
 #Exercice 1
 def compare(fichier1, fichier2):
     with open(fichier1, "r", encoding="utf-8") as f1, open(fichier2, "r", encoding="utf-8") as f2:
@@ -21,6 +22,7 @@ def compare(fichier1, fichier2):
 
         print("Les fichiers", (fichier1, fichier2), "sont identiques")
 
+
 #Exercice 2
 def copie(fichier, fichier_vide):
     with open(fichier, "r", encoding="utf-8") as f1, open(fichier_vide, "w", encoding="utf-8") as f2:
@@ -30,6 +32,7 @@ def copie(fichier, fichier_vide):
                     f2.write('   ')
                 else:
                     f2.write(i)
+
 
 #Exercice 3
 def mentions(fichier, fichier_mentions):
@@ -43,6 +46,7 @@ def mentions(fichier, fichier_mentions):
                     f2.write(i)
                     f2.write("\n")
 
+
 #Exercice 4
 def supprimer_recette(dictionnaire):
     nom_recette = input("Entrez le nom exact de la recette à supprimer")
@@ -51,10 +55,16 @@ def supprimer_recette(dictionnaire):
             del dictionnaire[nom_recette]
             break
 
-def basededonnee(livre):
+def base_de_donnee(livre):
     livre_de_recette = {}
     while True:
-        choix = int(input("Veuillez choisir parmis les options suivantes \n 1 : ajouter une recette \n 2 : supprimer une recette \n 3 : modifier une recette \n 4 : Afficher une recette \n 5 : Vous avez terminé \n Votre choix : "))
+        choix = int(input("Veuillez choisir parmis les options suivantes \n "
+                          "1 : ajouter une recette \n "
+                          "2 : supprimer une recette \n "
+                          "3 : modifier une recette \n "
+                          "4 : Afficher une recette \n "
+                          "5 : Vous avez terminé \n "
+                          "Votre choix : "))
         if choix == 1:
             recettes.add_recipes(livre_de_recette)
         elif choix == 2:
@@ -75,6 +85,7 @@ def basededonnee(livre):
             f.write(str(livre_de_recette.get(i)))
             f.write('\n')
 
+
 #Exercice 5
 def liste_croissante(fichier):
     liste = []
@@ -86,6 +97,7 @@ def liste_croissante(fichier):
                     liste.append(int(element))
 
     return sorted(liste)
+
 
 #Exercice 6
 def recopie_une_ligne_sur_deux(fichier1, fichier2):
@@ -111,7 +123,7 @@ if __name__ == '__main__':
     print(mentions('notes.txt', 'fichier_mentions'))
 
     # Exercice 4
-    print(basededonnee('livre'))
+    print(base_de_donnee('livre'))
 
     # Exercice 5
     print(liste_croissante('exemple.txt'))
